@@ -16,7 +16,7 @@ sudo rmmod "modname".ko
 
 sudo lsmod
 
-modeinfo "modname".ko
+modinfo "modname".ko
 
 sudo dmesg
 

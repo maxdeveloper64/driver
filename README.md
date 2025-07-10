@@ -14,4 +14,6 @@ sudo insmod "modname".ko
 
 sudo rmmod "modname".ko
 
+sudo lsmod
+
 sudo dmesg

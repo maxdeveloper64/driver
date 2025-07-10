@@ -10,5 +10,6 @@ sudo apt upgrade -y
 
 sudo apt install -y build-essential linux-headers-$(uname -r) kmod
 
-sudo insmod <modname>.ko
+sudo insmod "modname".ko
+
 sudo dmesg

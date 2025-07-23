@@ -10,7 +10,7 @@ sudo apt upgrade -y
 
 sudo apt install -y build-essential linux-headers-$(uname -r) kmod
 
-git clone git@github.com:TheUser/TheProject.git -key "/home/christoffer/ssh_keys/theuser"
+git clone git@github.com:TheUser/TheProject.git -key "~/.ssh/<ssh key>"
 
 sudo insmod "modname".ko
 

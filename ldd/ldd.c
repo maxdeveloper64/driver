@@ -6,12 +6,12 @@ MODULE_AUTHOR("Tizio");
 MODULE_DESCRIPTION("Linuz Device Driver");
 
 static int ldd_module_init(void) {
-    printk("Inited ldd driver\n");
+    printk("Inited ldd driver.\n");
     return 0;
 }
 
 static void ldd_module_exit(void) {
-    printk("Exit ldd mdriver\n");
+    printk("Exit ldd driver.\n");
 }
 
 module_init(ldd_module_init);

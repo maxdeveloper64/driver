@@ -16,7 +16,7 @@ sudo service ssh restart
 
 sudo apt install -y build-essential linux-headers-$(uname -r) kmod
 
-git clone git@github.com:TheUser/TheProject.git -key "~/.ssh/<ssh key>"
+git clone git@github.com:maxdeveloper64/driver.git --config core.sshCommand="ssh -i ~/.ssh/githubkey"
 
 sudo insmod "modname".ko
 

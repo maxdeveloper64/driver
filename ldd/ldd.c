@@ -14,5 +14,8 @@ static void ldd_module_exit(void) {
     printk("Exit ldd driver.\n");
 }
 
+struct proc_dir_entry *proc_create(const char *name, umode_t mode, struct proc_dir_entry *parent, const struct proc_ops *proc_ops);
+
+
 module_init(ldd_module_init);
 module_exit(ldd_module_exit);

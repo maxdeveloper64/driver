@@ -1,20 +1,32 @@
 #include <linux/init.h>
 #include <linux/module.h>
+#include <linux/proc_fs.h>
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Tizio");
 MODULE_DESCRIPTION("Linuz Device Driver");
 
+static struct proc_dir_entry *custom_proc_node;
+
 static int ldd_module_init(void) {
-    printk("Inited ldd driver.\n");
+    printk("Init ldd driver entry.\n");
+
+    custom_proc_node = proc_create("ldd_driver", 0, NULL, NULL);
+    
+    printk("Init ldd driver exit.\n");
+    
     return 0;
 }
 
 static void ldd_module_exit(void) {
-    printk("Exit ldd driver.\n");
+    printk("Exit ldd driver entry.\n");
+
+    proc_remove(custom_proc_node);
+
+    printk("Exit ldd driver exit.\n");
 }
 
-struct proc_dir_entry *proc_create(const char *name, umode_t mode, struct proc_dir_entry *parent, const struct proc_ops *proc_ops);
+
 
 
 module_init(ldd_module_init);

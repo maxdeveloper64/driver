@@ -29,3 +29,5 @@ modinfo "modname".ko
 sudo dmesg
 
 sudo dmesg -c
+
+https://github.com/torvalds/linux/blob/master/include/linux/proc_fs.h

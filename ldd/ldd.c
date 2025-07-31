@@ -7,7 +7,19 @@ MODULE_AUTHOR("Tizio");
 MODULE_DESCRIPTION("Linuz Device Driver");
 
 static struct proc_dir_entry *custom_proc_node;
-struct proc_ops driver_proc_ops = {};
+
+static ssize_t ldd_read(struct file *, char __user *, size_t, loff_t *) {
+    printk("Read ldd driver entry.\n");
+
+
+
+    printk("Read ldd driver exit.\n");
+    return 0;
+};
+
+struct proc_ops driver_proc_ops = {
+    .proc_read = ldd_read,
+};
 
 static int ldd_module_init(void) {
     printk("Init ldd driver entry.\n");

@@ -7,11 +7,17 @@ MODULE_AUTHOR("Tizio");
 MODULE_DESCRIPTION("Linuz Device Driver");
 
 static struct proc_dir_entry *custom_proc_node;
+struct proc_ops driver_proc_ops = {};
 
 static int ldd_module_init(void) {
     printk("Init ldd driver entry.\n");
 
-    custom_proc_node = proc_create("ldd_driver", 0, NULL, NULL);
+    custom_proc_node = proc_create("ldd_driver", 0, NULL, &driver_proc_ops);
+
+    if (custom_proc_node == NULL) {
+        printk("Init ldd driver failed.\n");
+        return -1;    
+    }
     
     printk("Init ldd driver exit.\n");
     

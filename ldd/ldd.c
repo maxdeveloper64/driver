@@ -8,13 +8,21 @@ MODULE_DESCRIPTION("Linuz Device Driver");
 
 static struct proc_dir_entry *custom_proc_node;
 
-static ssize_t ldd_read(struct file *, char __user *, size_t, loff_t *) {
+static ssize_t ldd_read(struct file *, char __user *user_space_buffer, size_t, loff_t *offset) {
     printk("Read ldd driver entry.\n");
 
+    char msg[] = "Ack!\n";
+    size_t len = strlen(msg);
+    int result;
 
+    if (*offset >= len)
+        return 0;
+    
+    result = copy_to_user(user_space_buffer, msg, len);
+    *offset += len;
 
     printk("Read ldd driver exit.\n");
-    return 0;
+    return len;
 };
 
 struct proc_ops driver_proc_ops = {
